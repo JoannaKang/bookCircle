@@ -10,6 +10,8 @@ import Bookcase from './Pages/Bookcase'
 import Friends from './Pages/Friends'
 import Dashboard from './Pages/Dashboard'
 import FriendSearch from './Pages/FriendSearch'
+import Register from './Pages/Register'
+import RegisterBookInfo from './Pages/RegisterBookInfo'
 import { getUser, requestBook } from './ApiService/serverApiService'
 
 import { User, Book } from './Interfaces'
@@ -103,6 +105,14 @@ const AuthenticatedApp: FunctionComponent<AuthAppProps> = (
           <Route path="/search" >
             <Search user={user} addBookToBookCase={addBookToBookCase}/>
           </Route>
+          <Route path="/register">
+            <Register/>
+          </Route>
+          <Route path="/registerBookInfo">
+            <RegisterBookInfo />
+          </Route>
+
+
         </Switch>
       </main>
     </Router>

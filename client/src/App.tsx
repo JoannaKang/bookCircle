@@ -28,7 +28,10 @@ function App() {
   // TODO: function that saves all friends books available to borrow to state
   
   useEffect( () => {
-    getUserData('Matt')
+
+    //NEED TO HARD CODE USER AT THE MOMENT
+    getUserData('Sooyeon')
+    //NEED TO HARD CODE USER AT THE MOMENT
   }, [])
 
   // function to add friend
@@ -39,7 +42,7 @@ function App() {
 
   // function to confirm friend
   const confirmFriend = async (activity: ActivityLog) => {
-    const result: any = await acceptFriend(activity);
+    const result: any = await acceptFriend(activity); // Should be object??
     setUserLoggedIn(result)
   }
   // function to reject friend request

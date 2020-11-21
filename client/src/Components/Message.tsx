@@ -19,7 +19,7 @@ type MessageProps = {
 
 // TODO: style component
 
-
+// TODO: write tests
 const Message: FunctionComponent<MessageProps> = ({activity, confirmFriend, userId, rejectFriendRequest, confirmBookReq, rejectBookReq, removeMessage}) => {
   
   const handleClick = (action: string | React.MouseEvent<SVGElement, MouseEvent>) => {

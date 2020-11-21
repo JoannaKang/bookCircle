@@ -2,6 +2,12 @@ import { User, ActivityLog, Book, AddFriend, BookRequest, NewBook } from '../Int
 
 const URL = 'http://localhost:3001/'
 
+async function createUser(data: object) {
+  console.log(data, 'API!');
+  //should send data to backend /createUser
+
+}
+
 async function getUser(name: string): Promise<User> {
   const user = await fetch(URL+'getUser/'+name)
     .then(response => response.json())
@@ -157,6 +163,7 @@ async function updateTarget(id: string, newTarget: number) {
 }
 
 export {
+  createUser,
   getUser,
   getFriendName,
   acceptFriend,

@@ -16,15 +16,13 @@ const BookDisplay: FunctionComponent<BookProps> = ({book, handleBookClicked}) =>
   }
 
   return (
-    <div className="BookDisplayDiv">
-      { 
-      book && 
+    <div className="BookDisplay">
       <img className="book" 
       src={book.imageUrl} 
       alt={`${book.title} book cover`}
       onClick={handleClick}
-      />}
-      { book && book.star && <AiFillStar className="star" />}
+      />
+      {book.star && <AiFillStar className="star" />}
     </div>
   )
 }
