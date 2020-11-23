@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FriendSearch Matches Snapshot when search button is Clicked and searchFriend Function is triggered 1`] = `
+<div>
+  <div>
+    <h1
+      class="searchHeader"
+    >
+      Find Friends:
+    </h1>
+    <form
+      action="submit"
+      class="searchForm"
+    >
+      <div
+        class="inputAndBtnContainer"
+      >
+        <input
+          class="searchInput"
+          placeholder="search by username..."
+          type="text"
+          value=""
+        />
+        <button
+          class="searchBtn"
+          data-testid="searchClick"
+        >
+          search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`FriendSearch matches the snapshot when user is provided 1`] = `
+<div>
+  <div>
+    <h1
+      class="searchHeader"
+    >
+      Find Friends:
+    </h1>
+    <form
+      action="submit"
+      class="searchForm"
+    >
+      <div
+        class="inputAndBtnContainer"
+      >
+        <input
+          class="searchInput"
+          placeholder="search by username..."
+          type="text"
+          value=""
+        />
+        <button
+          class="searchBtn"
+          data-testid="searchClick"
+        >
+          search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

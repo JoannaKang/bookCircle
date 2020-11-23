@@ -56,7 +56,7 @@ const Dashboard: FunctionComponent<DashboardProps> = (
   function availableBookClicked (book: Book) {
     setBookClicked(book)
   }
-  const userId = user._id
+  // const userId = user._id Commented out during Testing; was crashing when User wasn't defined
 
   useEffect( () => {
     getAllAvailableBooks(user._id)
@@ -89,7 +89,7 @@ const Dashboard: FunctionComponent<DashboardProps> = (
       key={activity._id}
       activity={activity} 
       confirmFriend={confirmFriend} 
-      userId={userId} 
+      userId={user._id} 
       rejectFriendRequest={rejectFriendRequest}
       confirmBookReq={confirmBookReq}
       rejectBookReq={rejectBookReq}
@@ -105,6 +105,7 @@ const Dashboard: FunctionComponent<DashboardProps> = (
         <h3>Books read this year:</h3>
         <h3>{`${booksReadThisYear}/${user.yearlyTarget}`}</h3>
         <button className="editTargetBtn"
+          data-testid="EditButtonClick"
           onClick={() => {
             setUpdateTargetClicked(true)
         }}>edit</button>

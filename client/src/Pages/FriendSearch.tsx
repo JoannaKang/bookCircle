@@ -33,7 +33,7 @@ const FriendSearch: FunctionComponent<FriendSearchProps> = ({handleAddFriend, us
       <form className='searchForm' action="submit" onSubmit={handleSubmit}>
         <div className='inputAndBtnContainer'>
           <input onChange={handleChange} className='searchInput' type="text" value={searchName} placeholder={`search by username...`}/>
-          <button className="searchBtn">search</button>
+          <button className="searchBtn" data-testid="searchClick" >search</button>
         </div>
       </form>
     { isSearch && <FriendsSearchResults users={searchResults} handleAddFriend={handleAddFriend} user={user} />
