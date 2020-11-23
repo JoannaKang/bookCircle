@@ -151,7 +151,7 @@ const EditBook: FunctionComponent<EditBookProps> = ({deleteFunc, setEditBook, bo
         </div>
         <div className="EditActionBtns">
           <button className="saveChanges" onClick={handleUpdateClick}>save</button>
-          <button className="deleteBtn" onClick={handleDelete}>delete</button>
+          <button className="deleteBtn" data-testid="deleteClick" onClick={handleDelete}>delete</button>
         </div>
       </div>}
     </div>

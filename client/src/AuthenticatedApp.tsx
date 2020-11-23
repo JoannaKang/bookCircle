@@ -106,7 +106,7 @@ const AuthenticatedApp: FunctionComponent<AuthAppProps> = (
             <Search user={user} addBookToBookCase={addBookToBookCase}/>
           </Route>
           <Route path="/register">
-            <Register/>
+            <Register />
           </Route>
           <Route path="/registerBookInfo">
             <RegisterBookInfo />

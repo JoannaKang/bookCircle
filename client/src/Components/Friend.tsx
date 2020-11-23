@@ -34,7 +34,7 @@ const Friend = ({friendId,  getSelectedFriend}: myProps) => {
         <BsFillPersonFill className="friendIcon" />
         {<h3>{friendName}</h3>}
       </div>
-        <button className="friendButton" onClick={handleClick}>
+        <button className="friendButton" onClick={handleClick} data-testid="friendButtonClick">
           view books
         </button>    
     </div>

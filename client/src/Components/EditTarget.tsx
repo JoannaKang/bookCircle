@@ -28,11 +28,11 @@ const EditTarget: FunctionComponent<EditTargetProps> = ({target, setUpdateTarget
   return (
     <div className="EditTargetDisplayDiv">
       <div className="EditTargetPopOutDiv">
-      <AiFillCloseCircle onClick={handleCloseClick} className="EscapeButton"/>
+      <AiFillCloseCircle data-testid="EscapeClick" onClick={handleCloseClick} className="EscapeButton"/>
       <h3>Set new target</h3>
       <form className="editTargetForm" onSubmit={handleClick}>
         <input value={userInput} type="number" onChange={handleChange}/>
-        <button type="submit">submit</button>
+        <button type="submit" data-testid="SubmitClick">submit</button>
       </form>
       
       </div>

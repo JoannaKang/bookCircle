@@ -3,8 +3,18 @@ import { User, ActivityLog, Book, AddFriend, BookRequest, NewBook } from '../Int
 const URL = 'http://localhost:3001/'
 
 async function createUser(data: object) {
-  console.log(data, 'API!');
-  //should send data to backend /createUser
+  console.log(data, 'API! Service');
+
+  const createUser = await fetch(URL + 'createUser', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(response => response.json())
+
+  console.log(createUser, 'USER RESPONSE')
+
 
 }
 

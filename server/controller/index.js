@@ -19,13 +19,13 @@ exports.getFriendsNameCtrl = async (req, res) => {
 }
 
 exports.createUserCtrl = async (req,res) => {
+  console.log( req.body ,'HERE')
   try {
     const newUser = new User({
       ...req.body,
       books: [],
       friends: [],
-      activityLog: [],
-      yearlyTarget: 0
+      activityLog: []
     });
     await newUser.save((err) => {
       if (err) return console.log(err);

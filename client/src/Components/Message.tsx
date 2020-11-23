@@ -19,7 +19,6 @@ type MessageProps = {
 
 // TODO: style component
 
-// TODO: write tests
 const Message: FunctionComponent<MessageProps> = ({activity, confirmFriend, userId, rejectFriendRequest, confirmBookReq, rejectBookReq, removeMessage}) => {
   
   const handleClick = (action: string | React.MouseEvent<SVGElement, MouseEvent>) => {
@@ -46,17 +45,17 @@ const Message: FunctionComponent<MessageProps> = ({activity, confirmFriend, user
       <p>{activity.message}</p>
       {activity.type === 'friendRequest' && 
         <div className="requestBtnsContainer">
-          <IoIosCheckmarkCircle className="friendRequestBtnAccept" onClick={() => handleClick('accept')} />
-          <IoIosCloseCircle className="friendRequestBtnReject" onClick={() => handleClick('reject')} />
+          <IoIosCheckmarkCircle data-testid="friendRequestAccept" className="friendRequestBtnAccept" onClick={() => handleClick('accept')} />
+        <IoIosCloseCircle data-testid="friendRequestReject" className="friendRequestBtnReject" onClick={() => handleClick('reject')} />
         </div>}
       {activity.type === 'bookRequest' && 
         <div className="requestBtnsContainer">
-          <IoIosCheckmarkCircle className="friendRequestBtnAccept" onClick={() => handleClick('accept')} />
-          <IoIosCloseCircle className="friendRequestBtnReject" onClick={() => handleClick('reject')} />
+        <IoIosCheckmarkCircle data-testid="friendRequestAcceptBook" className="friendRequestBtnAccept" onClick={() => handleClick('accept')} />
+        <IoIosCloseCircle data-testid="friendRequestRejectBook" className="friendRequestBtnReject" onClick={() => handleClick('reject')} />
         </div>}
       {activity.type === 'resolved' && 
         <div>
-          <IoIosCloseCircle className="resolvedBtnReject" onClick={() => handleClick('reject')} />
+        <IoIosCloseCircle data-testid="resolvedBtnRejectTest" className="resolvedBtnReject" onClick={() => handleClick('reject')} />
         </div>}
     </div>
   )

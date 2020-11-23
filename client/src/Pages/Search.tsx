@@ -40,6 +40,7 @@ const Search = ({user, addBookToBookCase}: myProps) => {
     genre: 'fiction',
   });
   const [questionSetion, setQuestionSection] = useState(1)
+  console.log(user, 'TEST LOG', addBookToBookCase, 'TEST TWO');
 
   const getBook = (name : String) : void => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=in${placeholder}:${name}&maxResults=40&printType=books&key=AIzaSyCPGabDlZJ8QKPihWNWfW-kl5yQtNFSlDc`)

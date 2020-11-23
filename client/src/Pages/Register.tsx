@@ -7,38 +7,38 @@ import './Register.scss';
 import {useState} from 'react';
 import React, { FunctionComponent } from 'react';
 import { createUser } from '../ApiService/serverApiService'; 
-import {
-    Link
-} from "react-router-dom";
-
-
-
-
-
-
-// const link = <Link to='/registerBookInfo'> <button className="submitButton" type="submit">Submit</button></Link>
+import Search from './Search';
 
 
 const Register = () => {
     const { register, handleSubmit, errors } = useForm();
     const [formInput, setFormInput] = useState({});
     const [formState, setFormState] = useState(false);
-    const [bookData, setBookData] = useState({});
+    const [searchState, setSearchState] = useState(false);
+    const [userData, setUserData] = useState({})
 
-    const onSubmit = (data: {Name: string; Username: string; NewPassword: string; ConfirmPassword: string}) => {
+    const onSubmit = (data: {name: string; username?: string; NewPassword?: string; ConfirmPassword?: string; password?: string}) => {
         console.log(data, 'REGISTER');
         if(data.NewPassword === data.ConfirmPassword){
+            data.password = data.NewPassword;
+            delete data.NewPassword;
+            delete data.ConfirmPassword;
+            delete data.username;
+            console.log(data, 'FINAL DATA');
             setFormInput(data);
-            setFormState(true)
+            setFormState(true);
         } else {
             alert('Passwords Do Not Match!')
         }
     };
 
-    const onSubmitTwo = (bookdata: {booklist: string[]; yearlyTarget: number}) => {
-        setBookData(bookdata);
-        console.log(bookData);
-    }
+    const onSubmitTwo =  (bookdata: {booklist?: string[]; yearlyTarget?: number}) => {
+        const target = bookdata.yearlyTarget;
+        const response = createUser({ ...formInput, yearlyTarget: target });
+        setUserData(response);
+        setSearchState(true);
+    };
+
 
 
     
@@ -46,23 +46,28 @@ const Register = () => {
     return (
         <div className="form-wrapper">
             {!formState && <div>
-            <h2>Register:</h2>
+            <h2>Register : </h2>
             <form className="submit-form" onSubmit={handleSubmit(onSubmit)}>
-                <input type="text" placeholder="Name" name="Name" ref={register({ required: true })} />
-                <input type="text" placeholder="Username" name="Username" ref={register({ required: true })} />
-                <input type="password" placeholder="New Password" name="NewPassword" ref={register({ required: true })} />
-                <input type="password" placeholder="Confirm Password" name="ConfirmPassword" ref={register({ required: true })} />
+                <input type="text" placeholder="Name" name="name" ref={register({ required: true })} />
+                <input type="text" placeholder="Username" name="username" ref={register({ required: true })} />
+                <input type="password" placeholder="New Password" name="NewPassword" ref={register({ required: true, min: 8 })} />
+                <input type="password" placeholder="Confirm Password" name="ConfirmPassword" ref={register({ required: true, min: 8 })} />
                 {/* {link}     */}
                     <button className="submitButton" type="submit">Submit</button>
             </form>
             </div>}
-            {formState && <div>
-                <h2>Enter Favourite Books:</h2>
+            {formState && !searchState && <div>
+                <h2>Enter Favourite Books :</h2>
                 <form className="submit-form" onSubmit={handleSubmit(onSubmitTwo)}>
-                    <input type="text" placeholder="Yearly Target" name="Yearly Target" ref={register({ required: true })} />
-                    <button type="submit">Submit</button>
+                    <input type="number" placeholder="Yearly Target" name="yearlyTarget" ref={register({ required: true, min: 1 })} />
+                    <button className="submitButton" type="submit">Submit</button>
                 </form>
             </div>}
+            {/* {searchState &&
+                <div>
+                    <Search ></Search>
+                </div>
+            } */}
         </div>
     
         )

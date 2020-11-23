@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Friend matches snapshot when friendID is provided 1`] = `
+<div>
+  <div
+    class="friendDiv"
+  >
+    <div
+      class="friendIconAndNameDiv"
+    >
+      <svg
+        class="friendIcon"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 16 16"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <h3 />
+    </div>
+    <button
+      class="friendButton"
+      data-testid="friendButtonClick"
+    >
+      view books
+    </button>
+  </div>
+</div>
+`;
