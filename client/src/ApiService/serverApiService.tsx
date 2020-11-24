@@ -1,6 +1,6 @@
 import { User, ActivityLog, Book, AddFriend, BookRequest, NewBook } from '../Interfaces'
 
-const URL = 'http://localhost:3001/'
+const URL = '/api/'
 
 async function createUser(data: object) {
   console.log(data, 'API!');
