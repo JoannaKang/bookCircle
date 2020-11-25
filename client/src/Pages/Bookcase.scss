@@ -1,0 +1,54 @@
+$primary-color: #DA291C;
+$primary-dark: #1C191A;
+$background-color: #F6E7D8;
+
+.bookCase {
+  h1 {
+    color: $primary-dark;
+    font-weight: 300;
+    border-bottom: 5px solid $primary-dark;
+    margin: 1rem 2.2rem;
+  }
+
+}
+
+.bookCaseH2 {
+  margin-left: 2.2rem;
+}
+
+#filterBooks {
+  color: $primary-dark;
+  font-weight: 300;
+  font-size: 1.5rem;
+  background-color: $background-color;
+  border: none;
+  cursor: pointer;
+  margin: 1rem 2.2rem;
+}
+
+#filterBooks::selection {
+  color: none;
+  background: none;
+  border-radius: 10px;
+}
+
+.bookCaseStatsDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+.statDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+
+  .statDivNumber {
+    padding: 1rem 1.5rem;
+    background-color: $primary-dark;
+    color: $background-color;
+    border-radius: 80px;
+  }
+}

@@ -1,0 +1,35 @@
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; 
+}
+
+.submit-form{
+ display: flex;
+ flex-direction: column;
+}
+
+.submitButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 18px;
+  margin: 6px 2px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 16px;
+  width: 50%;
+  align-self: center;
+  text-align: center;
+}
+
+input { 
+    margin: 5px 5px;
+      background-color: #white;
+  color: black;
+  padding: 12px 20px;
+  border: black 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+}
