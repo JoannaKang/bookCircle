@@ -1,44 +1,44 @@
 const router = require('express').Router();
-const { 
-  getCtrl, 
-  createUserCtrl, 
-  addBookCrtl, 
+const {
+  getCtrl,
+  createUserCtrl,
+  addBookCrtl,
   addFriendCtrl,
-   confirmFriendCtrl, 
-   updateTargetCtrl,
-   rejectFriendRequestCtrl,
-   removeActivityLogElementCtrl,
-   getUserCtrl,
-   getFriendsNameCtrl,
-   requestBookCtrl,
-   acceptBookRequestCtrl,
-   rejectBookRequestCtrl,
-   searchUsersCtrl,
-   getAvailableBooksCtrl,
-   editBookCtrl,
-   deleteBook
-   } = require('./controller')
+  confirmFriendCtrl,
+  updateTargetCtrl,
+  rejectFriendRequestCtrl,
+  removeActivityLogElementCtrl,
+  getUserCtrl,
+  getFriendsNameCtrl,
+  requestBookCtrl,
+  acceptBookRequestCtrl,
+  rejectBookRequestCtrl,
+  searchUsersCtrl,
+  getAvailableBooksCtrl,
+  editBookCtrl,
+  deleteBook
+} = require('./controller')
 
-router.get('/', getCtrl)
+router.get('/api/', getCtrl)
 // USER ROUTES
-router.get('/getUser/:name', getUserCtrl)
-router.post('/createUser', createUserCtrl)
-router.put('/updateTarget', updateTargetCtrl) //TODO: Can this be deleted??
-router.delete('/removeActivityLogElement', removeActivityLogElementCtrl)
+router.get('/api/getUser/:name', getUserCtrl)
+router.post('/api/createUser', createUserCtrl)
+router.put('/api/updateTarget', updateTargetCtrl) //TODO: Can this be deleted??
+router.delete('/api/removeActivityLogElement', removeActivityLogElementCtrl)
 //FRIEND ROUTES
-router.get('/searchFriend/:name', searchUsersCtrl)
-router.post('/addFriend', addFriendCtrl)
-router.post('/confirmFriend', confirmFriendCtrl)
-router.delete('/rejectFriendRequest', rejectFriendRequestCtrl)
-router.get('/getFriendsNames/:id', getFriendsNameCtrl)
+router.get('/api/searchFriend/:name', searchUsersCtrl)
+router.post('/api/addFriend', addFriendCtrl)
+router.post('/api/confirmFriend', confirmFriendCtrl)
+router.delete('/api/rejectFriendRequest', rejectFriendRequestCtrl)
+router.get('/api/getFriendsNames/:id', getFriendsNameCtrl)
 //BOOK ROUTES
-router.post('/addBook', addBookCrtl)
-router.post('/requestBook', requestBookCtrl)
-router.post('/acceptBookRequest', acceptBookRequestCtrl)
-router.post('/rejectBookRequest', rejectBookRequestCtrl)
-router.get('/availableBooks/:userId', getAvailableBooksCtrl)
-router.put('/editBook', editBookCtrl)
-router.delete('/deleteBook', deleteBook )
+router.post('/api/addBook', addBookCrtl)
+router.post('/api/requestBook', requestBookCtrl)
+router.post('/api/acceptBookRequest', acceptBookRequestCtrl)
+router.post('/api/rejectBookRequest', rejectBookRequestCtrl)
+router.get('/api/availableBooks/:userId', getAvailableBooksCtrl)
+router.put('/api/editBook', editBookCtrl)
+router.delete('/api/deleteBook', deleteBook)
 
 // ROUTES REQUIRED TODO:
 

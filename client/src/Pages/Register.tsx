@@ -42,9 +42,9 @@ const Register: FunctionComponent<registerProps> = ({ setUserLoggedIn, getUserDa
     const onSubmitTwo = async (bookdata: {booklist?: string[]; yearlyTarget?: number}) => {
         const target = bookdata.yearlyTarget;
         const response = await createUser({ ...formInput, yearlyTarget: target });
-        console.log(response.name, 'HAPPY')
+        // console.log(response.name, 'HAPPY')
         await setUserLoggedIn(response);
-        await getUserData(response.name);
+        // await getUserData(response.name);
         history.push('/search');
     };
 

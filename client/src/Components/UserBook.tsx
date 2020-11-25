@@ -48,10 +48,10 @@ const UserBook:FunctionComponent<UserBookProps>  = (
           editBookFunc={editBookFunc}
         />}
       <div className="UserBookPopOutDiv">
-        <AiFillCloseCircle onClick={handleCloseClick} className="UserBookEscapeButton"/>
+        <AiFillCloseCircle onClick={handleCloseClick} className="UserBookEscapeButton" />
 
         <div className="SelectedBookDisplayDiv">
-          <img src={clickedBook.imageUrl} alt=""/>
+          <img src={clickedBook.imageUrl} alt="imgUrl" />
           {clickedBook.star && <AiFillStar className="SelectedBookStar" />}
         </div>
         <div className="UserBookPopOutContentContainer">

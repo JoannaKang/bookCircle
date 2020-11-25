@@ -18,73 +18,74 @@ import { ActivityLog, User, AddFriend, BookRequest, NewBook, Book } from './Inte
 import './App.scss';
 
 function App() {
-  const [userLoggedIn, setUserLoggedIn] = useState<any>();
+  const [userLoggedIn, setUserLoggedIn] = useState<any>()
 
- console.log(userLoggedIn, 'LOGINAPP')
+  async function getUserData(name: string) {
+    const user: User = await getUser(name);
+    setUserLoggedIn(user);
+  }
 
- async function getUserData (name: string) {
-   const user: User = await getUser(name);
-   console.log(user, 'LOGGING USER')
-   await setUserLoggedIn(user);
- }
+  // TODO: function that saves all friends books available to borrow to state
 
-   useEffect(() => {
-      //  getUserData('Name')
-   }, [])
-  
-  
+  useEffect(() => {
+
+    //NEED TO HARD CODE USER AT THE MOMENT
+    getUserData('Adam')
+    //NEED TO HARD CODE USER AT THE MOMENT
+  }, [])
+
   // function to add friend
   const handleAddFriend = async (obj: AddFriend) => {
-    const result: any = await addFriend(obj);
+    const result: User = await addFriend(obj);
     setUserLoggedIn(result)
   }
-  
+
   // function to confirm friend
   const confirmFriend = async (activity: ActivityLog) => {
-    const result: any = await acceptFriend(activity); // Should be object??
+    const result: User = await acceptFriend(activity);
     setUserLoggedIn(result)
   }
   // function to reject friend request
   const rejectFriendRequest = async (activity: ActivityLog) => {
-    const result: any = await rejectFriend(activity);
+    const result: User = await rejectFriend(activity);
     setUserLoggedIn(result)
   }
   // function to confirm book request
   const confirmBookReq = async (activity: ActivityLog) => {
-    const result: any = await acceptBookRequest(activity);
+    const result: User = await acceptBookRequest(activity);
     setUserLoggedIn(result)
   }
   // function to reject book request
   const rejectBookReq = async (obj: BookRequest) => {
-    const result: any = await rejectBookRequest(obj);
+    const result: User = await rejectBookRequest(obj);
     setUserLoggedIn(result)
   }
-  
+
   //function to remove messages with no actions from dashboard
   const removeMessage = async (activity: ActivityLog) => {
-    const result: any = await deleteMessage(activity);
+    const result: User = await deleteMessage(activity);
     setUserLoggedIn(result)
   }
 
   // update target
   const updateYearlyTarget = async (id: string, newTarget: number) => {
-    const result: any = await updateTarget(id, newTarget);
+    const result: User = await updateTarget(id, newTarget);
     setUserLoggedIn(result)
   }
   
   // add book
   const addBookToBookCase = async (newbook: NewBook) => {
-    const result: any = await addBook(newbook);
+    const result: Array<Book> = await addBook(newbook);
     setUserLoggedIn({...userLoggedIn, books: result})
   }
   
   const removeBookFromBookCase = async (userId: string, bookId: string) => {
-    const result: any = await deleteBook(userId, bookId);
+    const result: User = await deleteBook(userId, bookId);
     setUserLoggedIn(result)
   }
   
   const editBook = async (userId: string, bookId: string, newBook: Book) => {
-    const result: any = await updateBook(userId, bookId, newBook)
+    const result: User = await updateBook(userId, bookId, newBook)
     setUserLoggedIn(result)
   }
   console.log(userLoggedIn ,'HI THERE')

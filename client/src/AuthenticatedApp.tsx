@@ -10,6 +10,7 @@ import Bookcase from './Pages/Bookcase'
 import Friends from './Pages/Friends'
 import Dashboard from './Pages/Dashboard'
 import FriendSearch from './Pages/FriendSearch'
+import Register from './Pages/Register'
 import RegisterBookInfo from './Pages/RegisterBookInfo'
 import { getUser, requestBook } from './ApiService/serverApiService'
 

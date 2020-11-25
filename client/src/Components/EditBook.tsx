@@ -99,18 +99,18 @@ const EditBook: FunctionComponent<EditBookProps> = ({deleteFunc, setEditBook, bo
     setClickedBook(undefined)
   }
 
-  return(
-    <div className="EditBookPopOutDiv">
+  return (
+    <div className="EditBookPopOutDiv" data-testid="editbook">
       {book && <div className="EditBookPopOutContainer">
         <h1 className="EditBookH1">Update Book:</h1>
-        <AiFillCloseCircle onClick={handleCloseClick} className="UserBookEscapeButton"/>
+        <AiFillCloseCircle onClick={handleCloseClick} className="UserBookEscapeButton" />
         <div className="EditOptionContainer">
           <h2>Review:</h2>
-          <textarea 
-            className="editookReviewInput" 
-            maxLength={100} 
-            value={updatedBook ? updatedBook.review: ''} 
-            onChange={handleReviewChange}  
+          <textarea
+            className="editookReviewInput"
+            maxLength={100}
+            value={updatedBook ? updatedBook.review : ''}
+            onChange={handleReviewChange}
           />
         </div>
         <div className="EditOptionContainer">

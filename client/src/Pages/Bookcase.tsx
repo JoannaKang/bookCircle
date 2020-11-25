@@ -2,7 +2,7 @@ import React, { useState, FunctionComponent } from 'react';
 import BookShelf from '../Components/BookShelf';
 import FriendsBook from '../Components/FriendsBook'
 import UserBook from '../Components/UserBook'
-import { User, Book } from '../Interfaces'
+import { User, Book } from '../Interfaces' // Type n for TypeScript
 import './Bookcase.scss'
 
 type BookCaseProps = {
