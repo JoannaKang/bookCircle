@@ -13,12 +13,14 @@ async function createUser(data: object) {
     body: JSON.stringify(data)
   }).then(response => response.json())
 
-  console.log(createUser, 'USER RESPONSE')
+  console.log( typeof createUser, createUser, 'USER RESPONSE');
+  return createUser;
 
 
 }
 
 async function getUser(name: string): Promise<User> {
+  console.log(name, 'GET USER API')
   const user = await fetch(URL+'getUser/'+name)
     .then(response => response.json())
 

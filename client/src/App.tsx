@@ -18,28 +18,27 @@ import { ActivityLog, User, AddFriend, BookRequest, NewBook, Book } from './Inte
 import './App.scss';
 
 function App() {
-  const [userLoggedIn, setUserLoggedIn] = useState<any>()
+  const [userLoggedIn, setUserLoggedIn] = useState<any>();
 
-  async function getUserData (name: string) {
-    const user: User = await getUser(name);
-    setUserLoggedIn(user);
-  }
+ console.log(userLoggedIn, 'LOGINAPP')
 
-  // TODO: function that saves all friends books available to borrow to state
+ async function getUserData (name: string) {
+   const user: User = await getUser(name);
+   console.log(user, 'LOGGING USER')
+   await setUserLoggedIn(user);
+ }
+
+   useEffect(() => {
+      //  getUserData('Name')
+   }, [])
   
-  useEffect( () => {
-
-    //NEED TO HARD CODE USER AT THE MOMENT
-    getUserData('Sooyeon')
-    //NEED TO HARD CODE USER AT THE MOMENT
-  }, [])
-
+  
   // function to add friend
   const handleAddFriend = async (obj: AddFriend) => {
     const result: any = await addFriend(obj);
     setUserLoggedIn(result)
   }
-
+  
   // function to confirm friend
   const confirmFriend = async (activity: ActivityLog) => {
     const result: any = await acceptFriend(activity); // Should be object??
@@ -60,7 +59,7 @@ function App() {
     const result: any = await rejectBookRequest(obj);
     setUserLoggedIn(result)
   }
-
+  
   //function to remove messages with no actions from dashboard
   const removeMessage = async (activity: ActivityLog) => {
     const result: any = await deleteMessage(activity);
@@ -72,7 +71,7 @@ function App() {
     const result: any = await updateTarget(id, newTarget);
     setUserLoggedIn(result)
   }
-
+  
   // add book
   const addBookToBookCase = async (newbook: NewBook) => {
     const result: any = await addBook(newbook);
@@ -83,15 +82,16 @@ function App() {
     const result: any = await deleteBook(userId, bookId);
     setUserLoggedIn(result)
   }
-
+  
   const editBook = async (userId: string, bookId: string, newBook: Book) => {
     const result: any = await updateBook(userId, bookId, newBook)
     setUserLoggedIn(result)
   }
+  console.log(userLoggedIn ,'HI THERE')
 
   return (
     <div>
-    { userLoggedIn && 
+    { userLoggedIn ? 
     <AuthenticatedApp 
     user={userLoggedIn} 
     confirmFriend={confirmFriend} 
@@ -104,8 +104,7 @@ function App() {
     addBookToBookCase={addBookToBookCase}
     removeBookFromBookCase={removeBookFromBookCase}
     editBook={editBook}
-    />}
-    { !userLoggedIn && <UnauthenticatedApp />}
+    /> : <UnauthenticatedApp setUserLoggedIn={setUserLoggedIn} getUserData={getUserData} />}
    </div>
   );
 }

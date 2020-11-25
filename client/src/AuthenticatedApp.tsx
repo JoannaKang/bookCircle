@@ -10,7 +10,6 @@ import Bookcase from './Pages/Bookcase'
 import Friends from './Pages/Friends'
 import Dashboard from './Pages/Dashboard'
 import FriendSearch from './Pages/FriendSearch'
-import Register from './Pages/Register'
 import RegisterBookInfo from './Pages/RegisterBookInfo'
 import { getUser, requestBook } from './ApiService/serverApiService'
 
@@ -60,12 +59,14 @@ const AuthenticatedApp: FunctionComponent<AuthAppProps> = (
     setSelectedFriend(result)
   }
 
+  console.log('AUTH', user, 'AUTH')
+
   return (
     <Router>    
       <main>
         <AuthHeader />  
         <Switch>
-          <Route path="/" exact >
+          <Route path="/"  exact>
             <Dashboard user={user} 
             confirmFriend={confirmFriend} 
             rejectFriendRequest={rejectFriendRequest}
@@ -105,14 +106,6 @@ const AuthenticatedApp: FunctionComponent<AuthAppProps> = (
           <Route path="/search" >
             <Search user={user} addBookToBookCase={addBookToBookCase}/>
           </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/registerBookInfo">
-            <RegisterBookInfo />
-          </Route>
-
-
         </Switch>
       </main>
     </Router>
